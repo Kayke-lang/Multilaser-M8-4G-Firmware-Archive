@@ -28,7 +28,7 @@ Status:             Unofficial public dump; full restoration untested
 **Download mirrors**
 
 - [MEGA](https://mega.nz/file/3b42yTgb#1nj6Jn-BvRV-nXmGctm4dMRTxkMLuYTir_KqQcSShZ0)
-- Internet Archive: **[ADD GOV V3 INTERNET ARCHIVE LINK]**
+- [Internet Archive](https://archive.org/details/multilaser-m8-4g-gov-v3-firmware-dump)
 
 **Verification**
 
@@ -70,7 +70,7 @@ Status:             Unofficial dump; full restoration untested
 **Download mirrors**
 
 - [MEGA](https://mega.nz/file/uC4TzDQR#CBrdfWj0EnAgkM_8LvW4uQiMDyh-Jo_DLwpIomNXzIA)
-- Internet Archive: **[ADD GOV V15 INTERNET ARCHIVE LINK]**
+- [Internet Archive](https://archive.org/details/multilaser-m8-4g-gov-v15-20260310)
 
 **Verification**
 
@@ -111,10 +111,10 @@ A matching checksum confirms that a download matches the published digest; it do
 ## Project status
 
 ```text
-GOV V3:             MEGA available; Internet Archive pending
+GOV V3:             MEGA and Internet Archive available
 Stock V10:          SourceForge available
 GOV V14:            Partial components in GOV V15 dump
-GOV V15:            MEGA available; Internet Archive pending
+GOV V15:            MEGA and Internet Archive available
 ```
 
 ## Contributions
