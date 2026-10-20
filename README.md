@@ -5,7 +5,7 @@ This repository indexes firmware downloads, checksums, and experimental recovery
 
 ## Device Information
 
-```
+```text
 Manufacturer:       Multilaser
 Model:              M8 4G
 Device:             M8_4G
@@ -21,7 +21,7 @@ Always verify the exact model and partition layout before attempting recovery.
 
 ### GOV V3
 
-```
+```text
 Version:            GOV V3
 Package:            Multilaser_M8_4G_GOV_V3_Public_Recovery_Dump.tar.zst
 Format:             Unofficial MTKClient dump, repackaged for public review
@@ -37,7 +37,7 @@ Download:           Coming soon
 
 ### Stock V10
 
-```
+```text
 Version:            V10.20250807
 Format:             Existing stock ROM archive (ZIP)
 Flash status:       Previously flashed successfully on tested M8 4G hardware
@@ -49,7 +49,7 @@ The V10 archive is hosted by a separate SourceForge project. Its contents and di
 
 ### GOV V14 (Partial)
 
-```
+```text
 Version:            GOV.V14_20251220
 Availability:       Selected slot-A components inside the V15 dump
 Flash status:       NOT a complete standalone ROM
@@ -60,7 +60,7 @@ Do not attempt to restore GOV V14 using only these partial components.
 
 ### GOV V15
 
-```
+```text
 Version:            GOV.V15_20260310
 Package:            Multilaser_M8_4G_GOV_V15_Recovery_Dump.tar.zst
 Format:             Unofficial MTKClient firmware dump
@@ -77,7 +77,7 @@ Download:           Coming soon
 
 Check the downloaded archive against its separately published `.sha256` file:
 
-```
+```sh
 sha256sum -c FILENAME.tar.zst.sha256
 ```
 
@@ -85,7 +85,7 @@ Replace `FILENAME` with the actual archive filename, and run the command in the 
 
 After extracting a firmware archive, verify the included images:
 
-```
+```sh
 sha256sum -c SHA256SUMS
 ```
 
