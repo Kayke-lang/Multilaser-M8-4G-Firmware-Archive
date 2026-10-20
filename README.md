@@ -41,9 +41,8 @@ Download:           Coming soon
 Version:            V10.20250807
 Format:             Existing stock ROM archive (ZIP)
 Flash status:       Previously flashed successfully on tested M8 4G hardware
+Download:           [SourceForge — Stock V10](https://sourceforge.net/projects/multilaser-m8-4g-so0v-rom/files/Dump_Multilaser_M8_4G_SO0V_Stock-ROM_V10.20250807.zip/download)
 ```
-
-Download: [SourceForge — Stock V10](https://sourceforge.net/projects/multilaser-m8-4g-so0v-rom/files/Dump_Multilaser_M8_4G_SO0V_Stock-ROM_V10.20250807.zip/download)
 
 The V10 archive is hosted by a separate SourceForge project. Its contents and distribution terms are not controlled by this repository.
 
