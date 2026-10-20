@@ -1,9 +1,10 @@
 # Multilaser M8 4G Firmware Archive
 
-Unofficial community-maintained firmware archive for the Multilaser M8 4G tablet.
-This repository indexes firmware downloads, checksums, and experimental recovery documentation.
+Unofficial community-maintained firmware archive for the **Multilaser M8 4G (M8_4G / SO0V)** tablet.
 
-## Device Information
+This repository indexes firmware downloads, recovery information, and SHA-256 checksums. The files are provided for preservation and research; they are **not all validated flashable ROMs**.
+
+## Device information
 
 ```text
 Manufacturer:       Multilaser
@@ -14,109 +15,112 @@ Platform:           MediaTek MT6765
 Architecture:       ARM64
 ```
 
-Compatibility is not guaranteed across hardware revisions or other variants (including SO1V).
-Always verify the exact model and partition layout before attempting recovery.
-
-## Available Firmware
+## Firmware downloads
 
 ### GOV V3
 
 ```text
 Version:            GOV V3
 Package:            Multilaser_M8_4G_GOV_V3_Public_Recovery_Dump.tar.zst
-Format:             Unofficial MTKClient dump, repackaged for public review
-Flash status:       Full restoration NOT tested
-Download:           Coming soon
+Status:             Unofficial public dump; full restoration untested
 ```
 
-- Contains 30 selected firmware images.
-- Includes `README.md`, `FLASHING_GUIDE.txt`, and `SHA256SUMS`.
-- Known sensitive partitions were excluded from the public package.
-- The original full-device archive is private and should not be published.
-- The GPT from the original V3 backup was not included because it has not been independently validated.
+**Download mirrors**
+
+- [MEGA](https://mega.nz/file/3b42yTgb#1nj6Jn-BvRV-nXmGctm4dMRTxkMLuYTir_KqQcSShZ0)
+- Internet Archive: **[ADD GOV V3 INTERNET ARCHIVE LINK]**
+
+**Verification**
+
+- [SHA-256 checksum](checksums/Multilaser_M8_4G_GOV_V3_Public_Recovery_Dump.tar.zst.sha256)
+
+This public archive includes selected firmware partitions and documentation. Known private partitions such as NVRAM, NVDATA, and PERSIST were excluded. The archive has not been validated for complete recovery; inclusion does not guarantee that every image is safe for public redistribution or flashing.
 
 ### Stock V10
 
 ```text
 Version:            V10.20250807
-Format:             Existing stock ROM archive (ZIP)
-Flash status:       Previously flashed successfully on tested M8 4G hardware
+Package:            Dump_Multilaser_M8_4G_SO0V_Stock-ROM_V10.20250807.zip
+Status:             Existing stock firmware package
 ```
 
-Download: [SourceForge — Stock V10](https://sourceforge.net/projects/multilaser-m8-4g-so0v-rom/files/Dump_Multilaser_M8_4G_SO0V_Stock-ROM_V10.20250807.zip/download)
+**Download**
 
-The V10 archive is hosted by a separate SourceForge project. Its contents and distribution terms are not controlled by this repository.
+- [SourceForge](https://sourceforge.net/projects/multilaser-m8-4g-so0v-rom/files/Dump_Multilaser_M8_4G_SO0V_Stock-ROM_V10.20250807.zip/download)
 
-### GOV V14 (Partial)
+This stock V10 package has previously been used successfully for recovery on tested M8 4G hardware. It is hosted by a separate SourceForge project; verify the package and device compatibility before flashing.
+
+### GOV V14 (partial)
 
 ```text
 Version:            GOV.V14_20251220
-Availability:       Selected slot-A components inside the V15 dump
-Flash status:       NOT a complete standalone ROM
-Download:           Included in GOV V15 archive (when published)
+Status:             Partial components only; no standalone ROM
 ```
 
-Do not attempt to restore GOV V14 using only these partial components.
+GOV V14 boot and AVB components were found in **slot A** of the GOV V15 backup. These components are included in the GOV V15 dump. **Do not treat them as a complete GOV V14 firmware release.**
 
 ### GOV V15
 
 ```text
 Version:            GOV.V15_20260310
 Package:            Multilaser_M8_4G_GOV_V15_Recovery_Dump.tar.zst
-Format:             Unofficial MTKClient firmware dump
-Flash status:       Full restoration NOT tested
-Download:           Coming soon
+Status:             Unofficial dump; full restoration untested
 ```
 
-- Slot A contains GOV V14 boot and AVB components.
-- Slot B contains GOV V15 boot and AVB components.
-- `super.bin` contains Virtual A/B metadata and COW partitions.
-- The available backup has not been demonstrated to recreate a fully bootable V15 installation.
+**Download mirrors**
 
-## Download Verification
+- [MEGA](https://mega.nz/file/uC4TzDQR#CBrdfWj0EnAgkM_8LvW4uQiMDyh-Jo_DLwpIomNXzIA)
+- Internet Archive: **[ADD GOV V15 INTERNET ARCHIVE LINK]**
 
-Check the downloaded archive against its separately published `.sha256` file:
+**Verification**
+
+- [SHA-256 checksum](checksums/Multilaser_M8_4G_GOV_V15_Recovery_Dump.tar.zst.sha256)
+
+The dump contains GOV V14 components in slot A, GOV V15 components in slot B, and a shared `super.bin` with Virtual A/B metadata and COW partitions. A fully bootable restoration from this package has **not** been demonstrated.
+
+## Verifying downloads
+
+Download the matching `.sha256` file from the links above and place it in the same directory as the downloaded archive. On Linux, run:
 
 ```sh
-sha256sum -c FILENAME.tar.zst.sha256
+sha256sum -c Multilaser_M8_4G_GOV_V3_Public_Recovery_Dump.tar.zst.sha256
 ```
 
-Replace `FILENAME` with the actual archive filename, and run the command in the directory containing both files.
-
-After extracting a firmware archive, verify the included images:
+Or, for GOV V15:
 
 ```sh
-sha256sum -c SHA256SUMS
+sha256sum -c Multilaser_M8_4G_GOV_V15_Recovery_Dump.tar.zst.sha256
 ```
 
-A valid checksum confirms that the file matches the recorded digest; it does **not** prove that the firmware is compatible, safe to flash, or free of device-specific information.
+The expected result ends with `OK`. If a checksum fails, **do not flash the file**. Both download mirrors should host byte-for-byte identical copies of each archive so that one checksum applies to both.
 
-## Recovery and Flashing
+A matching checksum confirms that a download matches the published digest; it does not prove the firmware is authentic, safe, compatible, or bootable.
 
-Read the guide included with each package **before** attempting any flash operation.
+## Recovery precautions
 
-**WARNING:** The GOV V3 and GOV V15 packages are experimental firmware dumps, **not validated one-click recovery ROMs**. Do not treat the included images as a verified set of flashing commands.
+- Confirm the exact tablet model and hardware revision before doing anything.
+- Keep a backup of the target device and a known-working recovery path.
+- Do not blindly flash the preloader, GPT, or firmware from another tablet variant.
+- Never overwrite device-specific identity, calibration, NVRAM, or NVDATA partitions.
+- Do not mix slot A and slot B firmware components indiscriminately.
+- Do not relock the bootloader with an experimental firmware dump.
+- Read the README and flashing guide inside each archive before attempting any recovery.
 
-- Back up your target device before making changes.
-- Confirm the exact tablet model, hardware revision, bootloader state, and partition layout.
-- Never blindly flash the preloader or GPT.
-- Preserve device-specific partitions such as NVRAM, NVDATA, and calibration data.
-- Do not mix images from different slots or firmware generations without validation.
-- Do not relock the bootloader with experimental firmware.
-- Keep a known-working recovery route available.
+**GOV V3 and GOV V15 are experimental firmware dumps, not verified installation packages.** Flashing can cause data loss, bootloops, or a device that no longer boots.
 
-## Privacy and Redistribution
+## Project status
 
-The original GOV V3 backup includes partitions that may contain unique identifiers, private data, and device-specific calibration. **Do not redistribute the original full backup.** The public V3 package excludes known sensitive partitions, but its selected firmware images still require review before publication.
-
-The V15 archive likewise requires review for identifiers and distribution permissions before public release. Excluding obvious private partitions is not proof of anonymization.
-
-This repository is unofficial and is not affiliated with Multilaser, MediaTek, or Google. Firmware copyrights remain with their respective owners. Hosting or linking a dump does not itself grant redistribution rights.
+```text
+GOV V3:             MEGA available; Internet Archive pending
+Stock V10:          SourceForge available
+GOV V14:            Partial components in GOV V15 dump
+GOV V15:            MEGA available; Internet Archive pending
+```
 
 ## Contributions
 
-Firmware metadata, verified checksums, documentation improvements, and compatibility reports are welcome. Do not submit device-specific identity or security partitions, personal information, or unverified flashing instructions.
+Corrections, verified firmware information, compatibility reports, and documentation improvements are welcome. Do not submit files containing personal data or unique device identifiers.
 
 ## Disclaimer
 
-All files and information are provided as-is, without warranty. Firmware flashing can cause data loss, bootloops, or permanent device damage. Proceed only if you understand the risks.
+This is an unofficial, independent preservation project and is not affiliated with Multilaser, MediaTek, or Google. Firmware copyrights remain with their respective owners. Hosting or downloading a firmware dump does not itself grant redistribution rights. All recovery operations are at the user's own risk.
